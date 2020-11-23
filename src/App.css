@@ -16,6 +16,13 @@ body {
   100%{background-position:100% 0}
 }
 
+#errorfind{
+  color: red;
+  font-size: 15px;
+  padding-left: 50px;
+  text-align: center;
+}
+
 #header{
   color: #BFD2FF;
   font-size: 40px;
@@ -95,3 +102,28 @@ body {
 .webflow-style-input button:hover {
     color: #BFD2FF;
   }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #739cff;
+  border-bottom: 16px solid #739cff;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 30px;
+  width: 200px;
+  height: 200px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -20,6 +20,7 @@ function CharacterCard({characterInfo}) {
   }
     return (
       <div><br/><br/>
+        {/* {!items[0]? <p id="errorfind">Not found</p>: null} */}
         {items}
       </div>
     );

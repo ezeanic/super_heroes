@@ -7,9 +7,11 @@ function App() {
 
   const [characterInfo, setCharacterInfo] = useState();
   const [error, setError] = useState();
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
+  var errorShow = 0;
 
   const getCharacter = async (chname) => {
+    setLoading(true);
     try {
       const response = await fetch(`https://proxy-server.herokuapp.com/https://superheroapi.com/api/1329227717427012/search/${chname}`);
       
@@ -17,18 +19,24 @@ function App() {
         if(!response.ok || json.response=='error'){
           throw Error('Invalid name');
         }
-      setCharacterInfo(json)
+      const filteredJson = json.results.filter(
+        (item) => chname.toLowerCase() === item.name.toLowerCase()
+      );
+      setCharacterInfo(filteredJson);
+      chname="";
+      filteredJson=null;
     } catch (error) {
       setError(error);
     }
+    setLoading(false);
 }
 
   return (
-    
     <div> 
       <h1 id="header">Heroes and Vilians</h1>
       <SearchBar getCharacter={getCharacter} />
-      {characterInfo? <CharacterCard characterInfo={characterInfo.results}/> : null}
+      {loading==true? <div class="loader"></div>: ""}
+      {characterInfo? <CharacterCard characterInfo={characterInfo}/> : null}}
     </div>
   );
 }
