@@ -13,9 +13,8 @@ function SearchBar({ getCharacter }) {
 
        <div class="webflow-style-input">
         <input id="changeInput"  onChange={(e)=>{ setFormInput(e.target.value);}} placeholder="Search Character"></input>
-        <p>{formInput}</p>
-        <button val="" onClick={(e) => {getCharacter(formInput); setFormInput(""); document.getElementById("changeInput").value=""}}><i class="icon ion-android-arrow-forward">&rarr;</i></button>
-  </div>
+        <button val="" onClick={(e) => {getCharacter(formInput);}}><i class="icon ion-android-arrow-forward">&rarr;</i></button>
+       </div>
       
     </div>
   );

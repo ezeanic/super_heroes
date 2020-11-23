@@ -5,7 +5,7 @@ import CharacterCard from './componenets/CharacterCard'
 
 function App() {
 
-  const [characterInfo, setCharacterInfo] = useState();
+  const [characterInfo, setCharacterInfo] = useState(null);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false)
   var errorShow = 0;
@@ -24,9 +24,9 @@ function App() {
       );
       setCharacterInfo(filteredJson);
       chname="";
-      filteredJson=null;
     } catch (error) {
-      setError(error);
+      setError(error.message);
+      setCharacterInfo([]);
     }
     setLoading(false);
 }
