@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import "../App.css";
 
 function SearchBar({ getCharacter }) {
    const [formInput, setFormInput] = useState('');
@@ -6,10 +7,12 @@ function SearchBar({ getCharacter }) {
 
   return (
     <div style={{paddingLeft: "100px"}} >
-       {/* <form style={{paddingLeft: "100px"}}> Search */}
-       <input onChange={(e)=>setFormInput(e.target.value)} />
-       <button onClick={() => getCharacter(formInput)}>Search</button>
-      {/* </form>  */}
+
+       <div class="webflow-style-input">
+        <input class="" onChange={(e)=>setFormInput(e.target.value)} placeholder="What's your email?"></input>
+        <button onClick={() => getCharacter(formInput)}><i class="icon ion-android-arrow-forward">&rarr;</i></button>
+  </div>
+      
     </div>
   );
 }

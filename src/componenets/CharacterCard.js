@@ -3,10 +3,19 @@ function CharacterCard({characterInfo}) {
   var items=[];
   console.log(characterInfo);
   for (const [index, value] of characterInfo.entries()) {
-    items.push(<div style={{backgroundColor: "grey" , padding:"10px", marginLeft: "50px"}} >
-    <p style={{fontSize: "20px", backgroundColor:"white", padding:"10px"}}><b>{characterInfo[index].name}</b></p>
+    items.push(<div class="webflow-style-data" >
+    <p ><b>{characterInfo[index].name}</b></p>
      <p>{characterInfo[index].biography["full-name"]}</p>
-     <img src={characterInfo[index].image.url}/>
+     <div class="infocharacter">
+        <img src={characterInfo[index].image.url}/>
+        <div id="superabilities">
+          <p>Combat: {characterInfo[index].powerstats.combat}</p>
+          <p>Durability: {characterInfo[index].powerstats.durability}</p>
+          <p>Intelligence: {characterInfo[index].powerstats.intelligence}</p>
+          <p>Speed: {characterInfo[index].powerstats.speed}</p>
+          <p>Strength: {characterInfo[index].powerstats.strength}</p>
+        </div>
+      </div>
    </div>)
   }
     return (

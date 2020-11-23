@@ -26,7 +26,7 @@ function App() {
   return (
     
     <div> 
-      <h1 style={{paddingLeft: "100px"}} >Heroes and Vilians</h1>
+      <h1 id="header">Heroes and Vilians</h1>
       <SearchBar getCharacter={getCharacter} />
       {characterInfo? <CharacterCard characterInfo={characterInfo.results}/> : null}
     </div>
